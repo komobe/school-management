@@ -24,16 +24,16 @@ class RegisterStudentUseCaseUnitTest {
             firstName = "John",
             lastName = "Doe",
             dateOfBirth = LocalDate.of(1980, 1, 1),
-        );
+        )
 
-        val studentRepository = mock(StudentRepository::class.java);
+        val studentRepository = mock(StudentRepository::class.java)
 
         // When
-        `when`(studentRepository.existsById(studentId)).thenReturn(false);
-        val registerStudentUseCase = RegisterStudentUseCase(studentRepository);
-        registerStudentUseCase.register(studentId, registerStudentCommand);
+        `when`(studentRepository.existsById(studentId)).thenReturn(false)
+        val registerStudentUseCase = RegisterStudentUseCase(studentRepository)
+        registerStudentUseCase.register(studentId, registerStudentCommand)
 
         // Then
-        verify(studentRepository).save(any());
+        verify(studentRepository).save(any())
     }
 }
